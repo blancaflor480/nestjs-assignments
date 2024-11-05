@@ -2,13 +2,12 @@ import { Controller, Get, Param } from '@nestjs/common';
 
 @Controller('assignments')
 export class AssignmentController {
-  
-  @Get('prime/:number')
-  isPrime(@Param('number') number: number) {
-    if (number < 2) return { isPrime: false };
-    for (let i = 2; i <= Math.sqrt(number); i++) {
-      if (number % i === 0) return { isPrime: false };
+  @Get('factorial/:number')
+  factorial(@Param('number') number: number) {
+    let result = 1;
+    for (let i = 2; i <= number; i++) {
+      result *= i;
     }
-    return { isPrime: true };
+    return { factorial: result };
   }
 }
